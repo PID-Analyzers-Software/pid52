@@ -1,0 +1,90 @@
+menuitems is in buttonmenu.h. they are menuitems 0 to 6. remove the ones jack wants out, and these items will be the items 0-4 (or whatever) listed below.
+
+
+in these routines change   tap.   to.    press
+
+bradshawlupton@bradshaws-MacBook-Pro-16359 PID52.v303c % grep -i tap *.ino *.h
+
+autozero.ino:    sprintf(pbuf, "     tap S\n\rwhen volts stable\n\r     sig = % .1f V\n\r", signalin);
+
+justheat.ino:    sprintf(temperbuf, "    heating to %d C\n\r                       tap S to skip", newtemp);
+
+bradshawlupton@bradshaws-MacBook-Pro-16359 PID52.v303c % 
+
+
+
+
+
+in munubutton.ino is the control.    comment out the ones jack wants to drop. DO NOT REMOVE THEM.
+
+
+
+Then reorder the numbers 0 to the top 
+
+
+
+bradshawlupton@bradshaws-MacBook-Pro-16359 PID52.v303c % grep menunumber menubutton.ino
+
+  menunumber = 0;
+
+  sprintf(pbuf, "%s",  menuitems[menunumber]);
+
+          menunumber++; if (!menuitems[menunumber][0])menunumber = 0;
+
+          //Serial.printf("menunumber=%d\n\r", menunumber);
+
+          Serial.printf("Button %d menunumber %d  modeval=%d depressed which is ::%s::\n\r", buttNum, menunumber, modeval, menuitems[menunumber]);
+
+          sprintf(pbuf, "%s",  menuitems[menunumber]);
+
+          if (menunumber == 0) {
+
+            buttNum = 0; menunumber = 0;
+
+          if (menunumber == 1) {
+
+            buttNum = 0; menunumber = 0;
+
+          if (menunumber == 2) {
+
+            buttNum = 0; menunumber = 0;
+
+          if (menunumber == 3) {
+
+              buttNum = 0; menunumber = 0;
+
+                buttNum = 0; menunumber = 0;
+
+          if (menunumber == 4) {   //ooh this is the nice way to do this!
+
+            buttNum = 0; menunumber = 0;
+
+          if (menunumber == 5) {
+
+            buttNum = 0; menunumber = 0;
+
+          if (menunumber == 6) {
+
+            buttNum = 0; menunumber = 0;
+
+
+bradshawlupton@bradshaws-MacBook-Pro-16359 PID52.v303c % 
+
+
+
+
+
+INCREASING THE TEMPERATURE RANGE
+
+
+
+in tempbutton.ino we handel the range of temps. you can change the range here. up takes you up 10c and down takes you down 2 C
+
+
+
+you can set the range here.  
+
+
+
+          I am sure I forgot something. LET ME KNOW!  thanks
+
