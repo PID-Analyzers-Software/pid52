@@ -55,7 +55,7 @@ float AUTOZEROit() {
     // 7/12/20 bbl, jack wants simple autozero
     ////////////////////////////////////////////
     //sprintf(pbuf, " triggered % .1f s\n\r sig = % .1f V\n\r   S to skip\n\r", ((float)(millis() - oldmillis) / 1000.), signalin);
-    sprintf(pbuf, "     tap S\n\rwhen volts stable\n\r     sig = % .1f V\n\r", signalin);
+    sprintf(pbuf, "     press S\n\rwhen volts stable\n\r     sig = % .1f V\n\r", signalin);
     ////////////////////////////////////////////
     // 7/12/20 bbl, jack wants simple autozero
     ////////////////////////////////////////////

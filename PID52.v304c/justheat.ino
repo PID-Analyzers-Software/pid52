@@ -52,7 +52,7 @@ starttime=millis();
     }
 
 
-    sprintf(temperbuf, "    heating to %d C\n\r                       tap S to skip", newtemp);
+    sprintf(temperbuf, "    heating to %d C\n\r                    press S to skip", newtemp);
     sprintf(temperactual, " T = %d C", currtemp);
     int rangein = readFile(SPIFFS, "/range.txt");
     rangebufdisplay[0] = 0;
