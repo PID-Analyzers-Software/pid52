@@ -134,14 +134,14 @@ void runit() {
     timeremaining -= (float)(1./60.); // try dropping a second
     
     if (BIASVOLTAGE < 50. )              // bradshw, bad bradshaw, just swapped these values as a 20 min fix, $$$$ bargain fix, bad bradshaw 7/12/20
-      sprintf(HVbuf, "HV *out*", (float)BIASVOLTAGE);
+      sprintf(HVbuf, "HV *out*", (float)HIGHVOLTAGE);
     else
-      sprintf(HVbuf, "HV = %.0f V", (float)BIASVOLTAGE);
+      sprintf(HVbuf, "HV = %.0f V", (float)HIGHVOLTAGE);
       
     if (HIGHVOLTAGE < 20.)
-      sprintf(BIASbuf, "Bias *out*", (float)HIGHVOLTAGE);
+      sprintf(BIASbuf, "Bias *out*", (float)BIASVOLTAGE);
     else
-      sprintf(BIASbuf, "Bias = %.0f V", (float)HIGHVOLTAGE);
+      sprintf(BIASbuf, "Bias = %.0f V", (float)BIASVOLTAGE);
       
     oledPrettyScreen(HVbuf, BIASbuf, signalinbuf, 24, rangebufdisplay, temperactual);
     if (buttonPushed(15) == 3) {

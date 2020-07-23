@@ -15,6 +15,6 @@ long buttonLastChecked = 0; // variable to limit the button getting checked ever
 int buttonPushed(int pinNum);
 
 char buf[10] = {'a', 0, 0, 0, 0, 0, 0, 0, 0, 0};
-char menuitems[][40] = {"RUN\n\r  S to start", "lamp", "set temp", "range","set run time",""};
+char menuitems[][40] = {"RUN\n\r  S to start", "set lamp", "set temp", "set range","set runtime",""};
 //                        0                     1 .                       2 .                         3 .     4           4       5   
 #endif

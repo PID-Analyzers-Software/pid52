@@ -77,14 +77,14 @@ starttime=millis();
     Serial.printf("\t\t$$$  range is %s\n\r", rangebufdisplay);
 
     if (HIGHVOLTAGE < 50. )
-      sprintf(HVbuf, "HV *out*", (float)BIASVOLTAGE);     // bias and high voltages were swapped  7/12/2020 bbl
+      sprintf(HVbuf, "HV *out*", (float)HIGHVOLTAGE);     // bias and high voltages were swapped  7/12/2020 bbl
     else                                                  // bradshaw, bad bradshaw, just swapped the display
-      sprintf(HVbuf, "HV = %.0f V", (float)BIASVOLTAGE);  //  however, this change requires no QA retest, nor big change
+      sprintf(HVbuf, "HV = %.0f V", (float)HIGHVOLTAGE);  //  however, this change requires no QA retest, nor big change
                                                           //  so it is a 1 hour changed, rather than a 6 hour $$$$ change. my bad
     if (BIASVOLTAGE < 20.)
-      sprintf(BIASbuf, "Bias *out*", (float)HIGHVOLTAGE);
+      sprintf(BIASbuf, "Bias *out*", (float)BIASVOLTAGE);
     else
-      sprintf(BIASbuf, "Bias = %.0f V", (float)HIGHVOLTAGE);
+      sprintf(BIASbuf, "Bias = %.0f V", (float)BIASVOLTAGE);
 
     oledPrettyScreen(HVbuf, BIASbuf , temperbuf, 10, rangebufdisplay, "*heating*");
     if (buttonPushed(15) == 1) {
