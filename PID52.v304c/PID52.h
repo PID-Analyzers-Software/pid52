@@ -18,6 +18,7 @@ float AUTOZEROit();
 int functionwithinmode = 0;
 void RUNmode();
 void JUSTheat();
+void JUSTheatcheck();
 void tempbutton();
 void rangebutton();
 char rbuf[64];

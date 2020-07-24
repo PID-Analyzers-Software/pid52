@@ -74,8 +74,8 @@ void loop() {
 #if 1
 void RUNmode() {
   Serial.printf("RUNmode STARTING\n\r"); delay(100);
-  heat();
   zero();
+  heatcheck();
   runit();
   Serial.printf("RUNmode complete\n\r");
   Serial.printf("RUNmode complete\n\r");
@@ -87,13 +87,20 @@ void heat() {
   Serial.printf("heat STARTING\n\r"); delay(100);
   JUSTheat();
   Serial.printf("heat ending\n\r"); delay(100);
-
 }
+
 void zero() {
   Serial.printf("zero STARTING\n\r"); delay(100);
   AUTOZEROmode();
   Serial.printf("zero ending\n\r"); delay(100);
 }
+
+void heatcheck() {
+  Serial.printf("heat STARTING\n\r"); delay(100);
+  JUSTheatcheck();
+  Serial.printf("heat ending\n\r"); delay(100);
+}
+
 void runit() {
   timeremaining=(float)timein;
   Serial.printf("runit STARTING\n\r"); delay(100);
@@ -136,9 +143,7 @@ void runit() {
     //sprintf(temperbuf, "    heating to %d C\n\r                    press S to skip", newtemp);
     //sprintf(temperactual, " T = %d C", currtemp);
 
-    if(abs(newtemp - currtemp)<5){
-      timeremaining -= (float)(1./60.); // try dropping a second
-    }
+    timeremaining -= (float)(1./60.); // try dropping a second
     
     if (BIASVOLTAGE < 50. )              // bradshw, bad bradshaw, just swapped these values as a 20 min fix, $$$$ bargain fix, bad bradshaw 7/12/20
       sprintf(HVbuf, "HV *out*", (float)HIGHVOLTAGE);
