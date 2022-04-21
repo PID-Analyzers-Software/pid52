@@ -15,4 +15,5 @@ Display: 21, 22. Set SSD1306  display(0x3C, 21, 22);  in PID52.h\
 
 # 307c:
 add initialization code to create the internal memory space for parameters.
+
 button votlage is set in menubutton.ino / PID52.h / readmembrane.ino 
