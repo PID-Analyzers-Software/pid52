@@ -17,3 +17,6 @@ Display: 21, 22. Set SSD1306  display(0x3C, 21, 22);  in PID52.h\
 add initialization code to create the internal memory space for parameters.
 
 button votlage is set in menubutton.ino / PID52.h / readmembrane.ino 
+
+# 401:
+for the new PCB board design, button voltage adjusted.
