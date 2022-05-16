@@ -23,4 +23,5 @@ for the new PCB board design, button voltage adjusted.
 
 # 403:
 autozero time changed to 5 secs. ----jw
+
 signals from adc are averaged by 10. ----jw
