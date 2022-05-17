@@ -184,9 +184,9 @@ int ReadButtonAgainWaiting() {
 
 
 #if 1
-#define UPBUT 468
-#define SELBUT 822
-#define DOWNBUT 1410
+#define UPBUT 1615
+#define SELBUT 877
+#define DOWNBUT 433
 #define PAUSEBUT 500 // how long to pause before repeating a button
 
 int buttonPushed(int pinNum) {  // routine open source from: https://forum.arduino.cc/index.php?topic=20125.0
@@ -199,7 +199,7 @@ int buttonPushed(int pinNum) {  // routine open source from: https://forum.ardui
   // all-open switch value when the internal 20K ohm pullup is enabled.
   //if( val >= 923 and val <= 1023 )
   //  Serial.println("switch 0 pressed/triggered");
-  Serial.println(val);
+  //Serial.println(val);
   if ( val >= (DOWNBUT - ERROR_WINDOW) and val <= (DOWNBUT + ERROR_WINDOW) ) { // 630
     return 2;
   }
