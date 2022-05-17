@@ -131,7 +131,7 @@ void runit() {
     Thermostat();//  is this too often?
     char rangebufdisplay[64];
     char rangeitems[][20] = {"x1", "x10", "x100", "x1000", ""};
-    sprintf(signalinbuf, "%.1f", signalin - autozeroVALUE + .02);
+    sprintf(signalinbuf, "%.2f", signalin - autozeroVALUE + .02);
     sprintf(temperactual, " T = %d C", currtemp);
     display.clear(); //$$
     int rangein = readFile(SPIFFS, "/range.txt");

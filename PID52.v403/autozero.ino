@@ -36,7 +36,7 @@ float AUTOZEROit() {
 
     READadc1115();// is this too often?
     Thermostat();//  is this too often?
-    sprintf(autozerobuf, "  waiting for autozero % .1f", signalin);
+    sprintf(autozerobuf, "  waiting for autozero % .2f", signalin);
   
     sprintf(temperactual, " T = % d C", currtemp);
     
@@ -50,7 +50,7 @@ float AUTOZEROit() {
     // 7/12/20 bbl, jack wants simple autozero
     ////////////////////////////////////////////
     //sprintf(pbuf, " triggered % .1f s\n\r sig = % .1f V\n\r   S to skip\n\r", ((float)(millis() - oldmillis) / 1000.), signalin);
-        sprintf(pbuf, "     press S    % d s\n\rwhen volts stable\n\r     sig = % .1f V\n\r", (5-(millis() - oldmillis)/1000),signalin);
+        sprintf(pbuf, "     press S    % d s\n\rwhen volts stable\n\r     sig = % .2f V\n\r", (5-(millis() - oldmillis)/1000),signalin);
        //     sprintf(pbuf, "     press S  30s\n\rwhen volts stable\n\r     sig = % .1f V\n\r", signalin);
 
     ////////////////////////////////////////////
@@ -233,7 +233,7 @@ float AUTOZEROmode() {
 
     READadc1115();// is this too often?
     Thermostat();//  is this too often?
-    sprintf(autozerobuf, "  waiting for autozero % .1f", signalin);
+    sprintf(autozerobuf, "  waiting for autozero % .2f", signalin);
 
     sprintf(temperactual, " T = % d C", currtemp);
     modeval = 0;
@@ -242,7 +242,7 @@ float AUTOZEROmode() {
 
     READadc1115();// is this too often?
     Thermostat();//  is this too often?
-    sprintf(pbuf, " % .1f secs\n\rsignalin\n\r = % .1f V", ((float)(millis() - oldmillis) / 1000.), signalin);
+    sprintf(pbuf, " % .1f secs\n\rsignalin\n\r = % .2f V", ((float)(millis() - oldmillis) / 1000.), signalin);
     display.setFont(ArialMT_Plain_16);
     oledFONTnoclear();
     display.display();
