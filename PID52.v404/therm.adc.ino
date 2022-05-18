@@ -49,18 +49,19 @@ void READadc1115() {
   float a = 0.00128;
   float b = -10.3697;
   signalin = (float)(adc1) * a + b;
-  if(adc2 >100 and adc2<500){
-    BIASVOLTAGE = 124.6;
-  }else if(adc2>500){
-    BIASVOLTAGE = 75;
-  }else{
-    BIASVOLTAGE = 0;
-  }
-  if(adc3 >4000 and adc3<6000){
+  //  if(adc2 >100 and adc2<500){
+  //    BIASVOLTAGE = 124.6;
+  //  }else if(adc2>500){
+  //    BIASVOLTAGE = 75;
+  //  }else{
+  //    BIASVOLTAGE = 0;
+  //  }
+  BIASVOLTAGE = adc2;
+  if (adc3 > 4000 and adc3 < 6000) {
     HIGHVOLTAGE = -1114;
-  }else if(adc3>6000){
+  } else if (adc3 > 6000) {
     HIGHVOLTAGE = -510;
-  }else{
+  } else {
     HIGHVOLTAGE = 0;
   }  //  //signalin = 6.66666 * signalin;
 
@@ -77,15 +78,15 @@ void READadc1115() {
   //  // FUDGE per Jack.
   //
   //  HIGHVOLTAGE = HIGHVOLTAGE * .812;
-//  signalin = (float)(adc1);
-//  BIASVOLTAGE = (float)(adc2);
-//  HIGHVOLTAGE = (float)(adc3);
-//  Serial.println("signalin:");
-//  Serial.println(signalin);
-//  Serial.println("bias V:");
-//  Serial.println(adc2);
-//  Serial.println("high V:");
-//  Serial.println(adc3);
+  //  signalin = (float)(adc1);
+  //  BIASVOLTAGE = (float)(adc2);
+  //  HIGHVOLTAGE = (float)(adc3);
+  //  Serial.println("signalin:");
+  //  Serial.println(signalin);
+  //  Serial.println("bias V:");
+  //  Serial.println(adc2);
+  //  Serial.println("high V:");
+  //  Serial.println(adc3);
 
 
   //if (HIGHVOLTAGE < 95.) HIGHVOLTAGE = 0.;
