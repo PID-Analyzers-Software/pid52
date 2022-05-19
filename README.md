@@ -27,4 +27,9 @@ autozero time changed to 5 secs. ----jw
 signals from adc are averaged by 10. ----jw
 
 # 404:
-added digits removed. Lamp check before running added.
+added digits removed. Lamp check before running added. ----jw
+
+Reduced waiting after the autozero, before the run. ----jw
+
+# 405:
+Modified Display. ----jw
