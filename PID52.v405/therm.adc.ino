@@ -50,7 +50,14 @@ void READadc1115() {
   float b = -10.3697;
   signalin = (float)(adc1) * a + b;
 
-  BIASVOLTAGE = adc2;
+  if(adc2 >100){
+    BIASVOLTAGE = 100;
+  }else if(adc2 < 90){
+    BIASVOLTAGE = 90;
+  }else{
+    BIASVOLTAGE = adc2;
+  }
+  
   if (adc3 > 4000 and adc3 < 6000) {
     HIGHVOLTAGE = -1114;
   } else if (adc3 > 6000) {
