@@ -1,6 +1,6 @@
 #if 1
 int ReadButtonAgainWaiting();
-#define ERROR_WINDOW 50  // was 50 +/- this value
+#define ERROR_WINDOW 150  // was 150 +/- this value
 #define BUTTONDELAY 200 // was 100 was 50 was 20 $$
 #define DEBUG_ON
 #define PAUSEBUT  1000 // was 900 was 647 how long to wait to repeat button
