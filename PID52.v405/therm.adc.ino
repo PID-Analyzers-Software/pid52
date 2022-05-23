@@ -46,18 +46,20 @@ void READadc1115() {
   /////////// sleazy sleazy sleazy bradshaw and bret.....  adc3 is HV   is .39 which is 375v
   /////////// sleazy sleazy sleazy bradshaw and bret.....  adc1 is sig  is ??  TBD ??
 
-  float a = 0.00128;
-  float b = -10.3697;
+  float a = 1;
+  float b = 0;
   signalin = (float)(adc0) * a + b;
 
-  if(adc1 >100){
+  if (adc1 > 100) {
     BIASVOLTAGE = 100;
-  }else if(adc1 < 90){
-    BIASVOLTAGE = 90;
-  }else{
+  } else if (adc1 > 90) {
     BIASVOLTAGE = adc1;
+  } else if (adc1 > 5) {
+    BIASVOLTAGE = 90;
+  } else {
+    BIASVOLTAGE = 0;
   }
-  
+
   if (adc2 > 4000 and adc2 < 6000) {
     HIGHVOLTAGE = -1114;
   } else if (adc2 > 6000) {
@@ -65,6 +67,5 @@ void READadc1115() {
   } else {
     HIGHVOLTAGE = 0;
   }  //  //signalin = 6.66666 * signalin;
-
 
 }
