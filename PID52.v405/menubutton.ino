@@ -199,7 +199,7 @@ int buttonPushed(int pinNum) {  // routine open source from: https://forum.ardui
   // all-open switch value when the internal 20K ohm pullup is enabled.
   //if( val >= 923 and val <= 1023 )
   //  Serial.println("switch 0 pressed/triggered");
-  //Serial.println(val);
+  Serial.println(val);
   if ( val >= (DOWNBUT - ERROR_WINDOW) and val <= (DOWNBUT + ERROR_WINDOW) ) { // 630
     return 2;
   }
