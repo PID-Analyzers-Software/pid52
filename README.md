@@ -33,3 +33,6 @@ Reduced waiting after the autozero, before the run. ----jw
 
 # 405:
 Modified Display. ----jw
+
+# 406:
+Updated button voltage ---jw 02/20/2023
