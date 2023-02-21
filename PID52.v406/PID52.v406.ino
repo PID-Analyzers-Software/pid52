@@ -120,7 +120,7 @@ void runit() {
     display.clear(); display.display(); Serial.printf("\t\tLamp is OFF\n\n");
     oledPrettyScreen(HVbuf, BIASbuf, "Lamp is OFF", 10, rangebufdisplay, temperactual);
     delay(3000);
-    return;
+    //return;
   }
 
   timeremaining = (float)timein;
