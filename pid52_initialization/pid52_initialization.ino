@@ -43,7 +43,7 @@ void setup() {
     Serial.println("There was an error opening the file for writing");
     return;
   }
-  if (file3.print("001")) {
+  if (file3.print("000")) {
     Serial.println("File was written");
   } else {
     Serial.println("File write failed");
