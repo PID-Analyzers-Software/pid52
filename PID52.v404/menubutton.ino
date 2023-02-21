@@ -184,9 +184,9 @@ int ReadButtonAgainWaiting() {
 
 
 #if 1
-#define UPBUT 1615
-#define SELBUT 877
-#define DOWNBUT 433
+#define UPBUT 460
+#define SELBUT 900
+#define DOWNBUT 1660
 #define PAUSEBUT 500 // how long to pause before repeating a button
 
 int buttonPushed(int pinNum) {  // routine open source from: https://forum.arduino.cc/index.php?topic=20125.0
