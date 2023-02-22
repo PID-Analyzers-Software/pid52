@@ -1,16 +1,5 @@
-#define SRCREV "PID52.v304c\n\r  07/17/2020 bbl/c\n\r  +run.time.3c"
+#define SRCREV "PID52.v406c\n\r  02/22/23/c\n\r  +run.time.3c"
 
-/*
-   PID52.v242b  bbl 7/12/20
-       jack requests trigger be gone
-         in autozerowait, just return
-         in autozeroit, wait for S to continue when signal is stable
-
-       BRADSHAW get data folder back in, and temp/range stuff
-
-
-    PID52.v240a bbl 10/15/19
-*/
 
 /*
 
@@ -126,6 +115,7 @@ void runit() {
   timeremaining = (float)timein;
   Serial.printf("runit STARTING\n\r"); delay(100);
   starttime = millis();
+
   while ( timeremaining > 0 ) {
     Thermostat();
     if (buttonPushed(15) == 1) {
@@ -143,6 +133,8 @@ void runit() {
 
     READadc1115();// is this too often?
     Thermostat();//  is this too often?
+    Serial.println("Thermostat() finished. ");
+    Serial.println(timeremaining);
     char rangebufdisplay[64];
     char rangeitems[][20] = {"x1", "x10", "x100", "x1000", ""};
     sprintf(signalinbuf, "%.3f", signalin - autozeroVALUE + .02);
@@ -155,14 +147,7 @@ void runit() {
     runsecs = ((millis() - starttime) / 1000) % 60;
     runmins = (millis() - starttime) / 60000;
 
-
     sprintf(rangebufdisplay, "(%.2f)  R=%s", timeremaining, rangeitems[rangein]); // bbl shortened range to inculde runtime
-    //sprintf(rangebufdisplay, "Range = %s", rangeitems[rangein]);
-
-
-    //start countdown after temperature matches.
-    //sprintf(temperbuf, "    heating to %d C\n\r                    press S to skip", newtemp);
-    //sprintf(temperactual, " T = %d C", currtemp);
 
     timeremaining -= (float)(1. / 60.); // try dropping a second
 
@@ -173,13 +158,11 @@ void runit() {
     oledPrettyScreen(HVbuf, BIASbuf, signalinbuf, 24, rangebufdisplay, temperactual);
     if (buttonPushed(15) == 3) {
       menunumber = 0;
-      display.clear(); display.display(); Serial.printf("\t\treturn return return\n\n");
+      display.clear(); display.display(); Serial.printf("\t\treturn return return return\n\n");
       delay(1000);
-      return;
+      //return;
     }
     delay(500);
-
-    // REAL DISPLAY
   }
   Serial.printf("runit ending\n\r"); delay(100);
 }
