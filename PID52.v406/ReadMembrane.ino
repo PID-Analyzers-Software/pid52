@@ -27,8 +27,8 @@ void getUSD() {
 void getUSD_0() {
 
 #if 0
-#define Slow 900
-#define Shi  1100
+#define Slow 800
+#define Shi  1000
 #define Dlow 1560
 #define Dhi  1760
 #define Ulow 360
