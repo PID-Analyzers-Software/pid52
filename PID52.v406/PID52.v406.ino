@@ -2,29 +2,17 @@
 
 
 /*
-
    v301a  add in run.time setting for 1-30 minute run, counting down
-
   I noticed that the 52 has a few changes that are needed.
-
   1. The automatic zero checking should be eliminated since this is a stand alone project.  BBL DONE
-
   2. The Bias and HV values should be switched- This is OK when the detector is connected   BBL DONE
-
   3. Bradshaw will be back this afternoon and will work with Jason to complete the changes on the 52.  JAYSON DROPPED OFF THANKS!
-
   4. After changes are made and you push S, then it should go back to the screen where it displays V, ,bias , then V,  Lamp V DONE
-
   5. From that position V display, when you press S it should display Run? press S,  display autozeroing, then go to set T DONE
-
   6. When at T , then ask Autozero? or skip DONE
-
   7. After that it is in the Run mode.  DONE
-
   8. Should we add run time? since this is manual we should and at the end of the run time it goes to the V display
-
   Jack
-
 */
 
 // unit came back to have the 5v trigger pulse reversed
@@ -107,34 +95,30 @@ void runit() {
   }
   if (1 == persistantlamp) {
     display.clear(); display.display(); Serial.printf("\t\tLamp is OFF\n\n");
-    oledPrettyScreen(HVbuf, BIASbuf, "Lamp is OFF", 10, rangebufdisplay, temperactual);
     delay(3000);
-    //return;
+    return;
   }
 
   timeremaining = (float)timein;
   Serial.printf("runit STARTING\n\r"); delay(100);
   starttime = millis();
-
   while ( timeremaining > 0 ) {
     Thermostat();
     if (buttonPushed(15) == 1) {
       display.clear(); display.display(); Serial.printf("\t\tB R O K E\n\n");
       delay(1000);
-      //break;
+      break;
     }
     if (buttonPushed(15) == 3) {
       menunumber = 0;
-      display.clear(); display.display(); Serial.printf("\t\t B3 Pressed return return return\n\n");
+      display.clear(); display.display(); Serial.printf("\t\treturn return return\n\n");
       delay(1000);
-      //return;
+      return;
     }
     // REAL DISPLAY
 
     READadc1115();// is this too often?
     Thermostat();//  is this too often?
-    Serial.println("Thermostat() finished. Time Remaining: ");
-    Serial.println(timeremaining);
     char rangebufdisplay[64];
     char rangeitems[][20] = {"x1", "x10", "x100", "x1000", ""};
     sprintf(signalinbuf, "%.3f", signalin - autozeroVALUE + .02);
@@ -147,22 +131,37 @@ void runit() {
     runsecs = ((millis() - starttime) / 1000) % 60;
     runmins = (millis() - starttime) / 60000;
 
+
     sprintf(rangebufdisplay, "(%.2f)  R=%s", timeremaining, rangeitems[rangein]); // bbl shortened range to inculde runtime
+    //sprintf(rangebufdisplay, "Range = %s", rangeitems[rangein]);
+
+
+    //start countdown after temperature matches.
+    //sprintf(temperbuf, "    heating to %d C\n\r                    press S to skip", newtemp);
+    //sprintf(temperactual, " T = %d C", currtemp);
 
     timeremaining -= (float)(1. / 60.); // try dropping a second
 
+    //    if (BIASVOLTAGE < 50. )              // bradshw, bad bradshaw, just swapped these values as a 20 min fix, $$$$ bargain fix, bad bradshaw 7/12/20
+    //      sprintf(HVbuf, "HV *out*", (float)HIGHVOLTAGE);
+    //    else
     sprintf(HVbuf, "HV = %.0f V", (float)HIGHVOLTAGE);
 
+    //    if (HIGHVOLTAGE < 20.)
+    //      sprintf(BIASbuf, "Bias *out*", (float)BIASVOLTAGE);
+    //    else
     sprintf(BIASbuf, "Bias = %.0f V", (float)BIASVOLTAGE);
 
     oledPrettyScreen(HVbuf, BIASbuf, signalinbuf, 24, rangebufdisplay, temperactual);
     if (buttonPushed(15) == 3) {
       menunumber = 0;
-      display.clear(); display.display(); Serial.printf("\t\t Button3 Pressed return return\n\n");
+      display.clear(); display.display(); Serial.printf("\t\treturn return return\n\n");
       delay(1000);
-      //return;
+      return;
     }
     delay(500);
+
+    // REAL DISPLAY
   }
   Serial.printf("runit ending\n\r"); delay(100);
 }
