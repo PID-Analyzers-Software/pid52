@@ -125,7 +125,7 @@ void runit() {
     }
     if (buttonPushed(15) == 3) {
       menunumber = 0;
-      display.clear(); display.display(); Serial.printf("\t\treturn return return\n\n");
+      display.clear(); display.display(); Serial.printf("\t\t B3 Pressed return return return\n\n");
       delay(1000);
       //return;
     }
@@ -133,7 +133,7 @@ void runit() {
 
     READadc1115();// is this too often?
     Thermostat();//  is this too often?
-    Serial.println("Thermostat() finished. ");
+    Serial.println("Thermostat() finished. Time Remaining: ");
     Serial.println(timeremaining);
     char rangebufdisplay[64];
     char rangeitems[][20] = {"x1", "x10", "x100", "x1000", ""};
@@ -158,7 +158,7 @@ void runit() {
     oledPrettyScreen(HVbuf, BIASbuf, signalinbuf, 24, rangebufdisplay, temperactual);
     if (buttonPushed(15) == 3) {
       menunumber = 0;
-      display.clear(); display.display(); Serial.printf("\t\treturn return return return\n\n");
+      display.clear(); display.display(); Serial.printf("\t\t Button3 Pressed return return\n\n");
       delay(1000);
       //return;
     }
