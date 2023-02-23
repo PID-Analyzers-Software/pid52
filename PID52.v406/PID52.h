@@ -7,7 +7,7 @@ long starttime=0;
 
 //setting is in menubutton.h
 #define Slow 900
-#define Shi  1000
+#define Shi  1100
 #define Dlow 1560
 #define Dhi  1760
 #define Ulow 360
