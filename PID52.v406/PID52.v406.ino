@@ -121,13 +121,13 @@ void runit() {
     if (buttonPushed(15) == 1) {
       display.clear(); display.display(); Serial.printf("\t\tB R O K E\n\n");
       delay(1000);
-      break;
+      //break;
     }
     if (buttonPushed(15) == 3) {
       menunumber = 0;
       display.clear(); display.display(); Serial.printf("\t\treturn return return\n\n");
       delay(1000);
-      return;
+      //return;
     }
     // REAL DISPLAY
 
