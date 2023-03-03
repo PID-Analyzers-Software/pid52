@@ -6,12 +6,12 @@ long runsecs=0;
 long starttime=0;
 
 //setting is in menubutton.h
-#define Slow 777
-#define Shi  977
-#define Dlow 333
-#define Dhi  533
-#define Ulow 1515
-#define Uhi 1715
+#define Slow 800
+#define Shi  1000
+#define Dlow 1560
+#define Dhi  1760
+#define Ulow 360
+#define Uhi 560
 // changed to new analog range. j.w. 11/12
 long oldmillis=0;
 void AUTOZEROwait();
