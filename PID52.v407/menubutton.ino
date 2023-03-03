@@ -27,17 +27,18 @@ void MenuButton() {
 
 
 //    //j.w. try to add trigger for starting the run
-//    int pin32 = analogRead(32);
+    int pin32 = analogRead(32);
 //    //Serial.println("ready to triger.");
 //    //Serial.println(pin32);
 //    //Serial.println(menunumber);
-//    if(menunumber == 0 and pin32 > 5){
-//      menunumber++;
-//              display.clear(); display.display(); delay(1000);
-//            RUNmode();
-//            buttNum = 0; menunumber = 0;
-//            return;
-//    }
+    if(menunumber == 0 and pin32 > 1200){
+      Serial.println("trigger started.");
+      menunumber++;
+              display.clear(); display.display(); delay(1000);
+            RUNmode();
+            buttNum = 0; menunumber = 0;
+            return;
+    }
 
     if ( millis() - buttonLastChecked > BUTTONDELAY ) { // make sure a reasonable delay passed
       if ( buttNum = buttonPushed(analogPin) ) {
