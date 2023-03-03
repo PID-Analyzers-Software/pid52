@@ -36,3 +36,11 @@ Modified Display. ----jw
 
 # 406:
 Updated button voltage ---jw 02/20/2023
+
+
+
+    sensorV  += analogRead(15); //memb
+    sensorV2 = analogRead(14);//temp
+    sensorV3 = analogRead(12);//hv
+    sensorV4 = analogRead(2);//bias
+    sensorV5 = analogRead(26);//lamp status????
