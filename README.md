@@ -37,6 +37,9 @@ Modified Display. ----jw
 # 406:
 Updated button voltage ---jw 02/20/2023
 
+# 407:
+Problem: jumping into running mode.
+Solution: Trigger button threshold increased to 1200 ~ 1V. 
 
 
     sensorV  += analogRead(15); //memb
