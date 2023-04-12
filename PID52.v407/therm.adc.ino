@@ -46,7 +46,7 @@ void READadc1115() {
 
   float a = 0.00126;
   float b = 0.00809;
-  signalin = adc0 * a + b;
+  signalin = adc0 * a + b - 10;
   Serial.printf("signalin: %.2f.  \n", signalin);
   if (adc1 > 100) {
     BIASVOLTAGE = 100;
