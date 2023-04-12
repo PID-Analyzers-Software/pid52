@@ -1,4 +1,4 @@
-#define SRCREV "PID52.v304c\n\r  07/17/2020 bbl/c\n\r  +run.time.3c"
+#define SRCREV "PID52.v407\n\r   +run.time.3c"
 
 /*
    PID52.v242b  bbl 7/12/20
