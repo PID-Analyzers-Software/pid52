@@ -46,8 +46,8 @@ void READadc1115() {
   /////////// sleazy sleazy sleazy bradshaw and bret.....  adc3 is HV   is .39 which is 375v
   /////////// sleazy sleazy sleazy bradshaw and bret.....  adc1 is sig  is ??  TBD ??
 
-  float a = 1;
-  float b = 0;
+  float a = 0.00126;
+  float b = 0.00809;
   signalin = (float)(adc0) * a + b;
 
   if (adc1 > 100) {
