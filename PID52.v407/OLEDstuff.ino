@@ -122,13 +122,14 @@ void StartupDisplay() {
 ///////////////////////////////////  oledPrettyScreen
 ///////////////////////////////////  oledPrettyScreen
 
-void  oledPrettyScreen(char *MESSAGE, int font, char *range, char *temp) {
+void  oledPrettyScreen(char *HV, char *BIAS, char *MESSAGE, int font, char *range, char *temp) {
 
   Serial.println("oled()");
   display.clear();
   display.flipScreenVertically();
   display.setTextAlignment(TEXT_ALIGN_LEFT);
   display.setFont(ArialMT_Plain_10);
+  sprintf(pbuf, "%s  %s\n\r", HV, BIAS);
   display.drawString(0, 5, pbuf);
   display.setFont(ArialMT_Plain_10);
   if (16 == font) display.setFont(ArialMT_Plain_16);
