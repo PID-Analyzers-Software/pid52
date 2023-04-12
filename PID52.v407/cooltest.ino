@@ -185,11 +185,11 @@ while ( 1 ) {
 
 #if 0 // test OLEDprettyScrfeen .   // test the screen spacing and messages
 Serial.printf("test oledPrettyScreen\n\r");
-oledPrettyScreen("HV 350v", "   Bias 134v", " 110.1   ", 24, "range = x100 ",  "T = 251C");
+oledPrettyScreen(" 110.1   ", 24, "range = x100 ",  "T = 251C");
 delay(5000);
-oledPrettyScreen("Lamp is off", "Bias LOW", "      check lamp", 10, "range = x1     ", " *cooling*");
+oledPrettyScreen "      check lamp", 10, "range = x1     ", " *cooling*");
 delay(4000);
-oledPrettyScreen("HV 350v", "   Bias 134v", "    waiting for autozero", 10, "range = x1000", "*heating*");
+oledPrettyScreen("    waiting for autozero", 10, "range = x1000", "*heating*");
 delay(4000);
 #endif
 

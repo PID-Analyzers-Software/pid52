@@ -87,7 +87,7 @@ starttime=millis();
 //    else
       sprintf(BIASbuf, "Bias = %.0f V", (float)BIASVOLTAGE);
 
-    oledPrettyScreen(HVbuf, BIASbuf , temperbuf, 10, rangebufdisplay, "*heating*");
+    oledPrettyScreen(temperbuf, 10, rangebufdisplay, "*heating*");
     if (buttonPushed(15) == 1) {
       display.clear(); display.display(); Serial.printf("\t\tB R O K E\n\n");
       delay(1000);
@@ -116,7 +116,7 @@ starttime=millis();
     //sprintf(rangebufdisplay, "Range = %s", rangeitems[rangein]);
 
     //////////////////
-    oledPrettyScreen(HVbuf, BIASbuf, temperbuf, 10, rangebufdisplay, temperactual);
+    oledPrettyScreen(temperbuf, 10, rangebufdisplay, temperactual);
     if (buttonPushed(15) == 1) {
       display.clear(); display.display(); Serial.printf("\t\tB R O K E\n\n");
       delay(1000);

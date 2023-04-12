@@ -74,7 +74,7 @@ int SETTEMP = 125;
 SSD1306  display(0x3C, 21, 22);
 #include "Adafruit_ADS1015.h"
 void  PrettyScreen(char *HV, char *BIAS, char *MESSAGE);
-void  oledPrettyScreen(char *HV, char *BIAS, char *MESSAGE, int font, char *range, char *temp);
+void  oledPrettyScreen(char *MESSAGE, int font, char *range, char *temp);
 void ReadMembrane();
 int readFile(fs::FS &fs, const char * path);
 void writeFile(fs::FS & fs, const char * path, const char * message);
