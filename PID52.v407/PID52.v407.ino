@@ -113,12 +113,12 @@ void runit() {
   sprintf(lampbuf, "LAMP is farkled");
   if (0 == persistantlamp) {
     display.clear(); display.display(); Serial.printf("\t\tLamp is ON\n\n");
-    oledPrettyScreen("Lamp is ON", 10, rangebufdisplay, temperactual);
+      oledPrettyScreen(" ", " ", "Lamp is ON", 10, rangebufdisplay, temperactual);
     delay(2000);
   }
   if (1 == persistantlamp) {
     display.clear(); display.display(); Serial.printf("\t\tLamp is OFF\n\n");
-    oledPrettyScreen( "Lamp is OFF", 10, rangebufdisplay, temperactual);
+      oledPrettyScreen(" ", " ", "Lamp is OFF", 10, rangebufdisplay, temperactual);
     delay(3000);
     return;
   }
@@ -166,8 +166,12 @@ void runit() {
 
     timeremaining -= (float)(1. / 60.); // try dropping a second
 
-    oledPrettyScreen(signalinbuf, 24, rangebufdisplay, temperactual);
-    if (buttonPushed(15) == 3) {
+      //sprintf(HVbuf, "HV = %.0f V", (float)HIGHVOLTAGE);
+
+      //sprintf(BIASbuf, "Bias = %.0f V", (float)BIASVOLTAGE);
+
+      oledPrettyScreen(" ", " ", signalinbuf, 24, rangebufdisplay, temperactual);
+      if (buttonPushed(15) == 3) {
       menunumber = 0;
       display.clear(); display.display(); Serial.printf("\t\treturn return return\n\n");
       delay(1000);
