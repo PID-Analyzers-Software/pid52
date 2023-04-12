@@ -39,8 +39,6 @@ void READadc1115() {
   adc1 = ads.readADC_SingleEnded(1); delay(30);
   adc2 = ads.readADC_SingleEnded(2); delay(30);
   adc3 = ads.readADC_SingleEnded(3); delay(30);
-  Serial.printf("adc1: %.2f. adc2: %.2f. adc3: %.2f. \n", adc1, adc2, adc3);
-
 
   /////////// sleazy sleazy sleazy bradshaw and bret.....  adc2 is bias is .24 which is 137v .   adc0 is 3.3v power (freindly!)
   /////////// sleazy sleazy sleazy bradshaw and bret.....  adc3 is HV   is .39 which is 375v
@@ -48,8 +46,8 @@ void READadc1115() {
 
   float a = 0.00126;
   float b = 0.00809;
-  signalin = (float)(adc0) * a + b;
-
+  signalin = adc0 * a + b;
+  Serial.printf("signalin: %.2f.  \n", signalin);
   if (adc1 > 100) {
     BIASVOLTAGE = 100;
   } else if (adc1 > 90) {
@@ -67,6 +65,5 @@ void READadc1115() {
   } else {
     HIGHVOLTAGE = 0;
   }  //  //signalin = 6.66666 * signalin;
-
 
 }
