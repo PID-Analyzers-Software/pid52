@@ -166,9 +166,9 @@ void runit() {
 
     timeremaining -= (float)(1. / 60.); // try dropping a second
 
-    //sprintf(HVbuf, "HV = %.0f V", (float)HIGHVOLTAGE);
+    sprintf(HVbuf, "HV = %.0f V", (float)HIGHVOLTAGE);
 
-    //sprintf(BIASbuf, "Bias = %.0f V", (float)BIASVOLTAGE);
+    sprintf(BIASbuf, "Bias = %.0f V", (float)BIASVOLTAGE);
 
     oledPrettyScreen(HVbuf, BIASbuf, signalinbuf, 24, rangebufdisplay, temperactual);
     if (buttonPushed(15) == 3) {
