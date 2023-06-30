@@ -1,4 +1,3 @@
-
 void Thermostat() {
   //D13 - Heater On/Off Out
   //D14 - Temp In
@@ -46,8 +45,18 @@ void READadc1115() {
 
   float a = 0.00126;
   float b = 0.00809;
-  signalin = adc0 * a + b - 10;
-  Serial.printf("signalin: %.2f.  \n", signalin);
+  float datain = adc0 * a + b - 10;
+  // Add the new value to the array
+  signalinValues[signalinIndex] = datain;
+  signalinIndex = (signalinIndex + 1) % MOVING_AVERAGE_SIZE;
+
+  // Compute the moving average
+  float movingAverage = 0.0;
+  for (int i = 0; i < MOVING_AVERAGE_SIZE; i++) {
+    movingAverage += signalinValues[i];
+  }
+  signalin /= MOVING_AVERAGE_SIZE;
+
   if (adc1 > 100) {
     BIASVOLTAGE = 100;
   } else if (adc1 > 90) {
