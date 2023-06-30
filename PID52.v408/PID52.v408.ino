@@ -180,7 +180,6 @@ void runit() {
     //sprintf(BIASbuf, "Bias = %.0f V", (float)BIASVOLTAGE);
 
     oledPrettyScreen(HVbuf, BIASbuf, signalinbuf, 24, rangebufdisplay, temperactual);
-    SerialBT.print("Signal: ");
     SerialBT.println(signalinbuf);
 
     if (buttonPushed(15) == 3) {
