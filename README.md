@@ -48,3 +48,9 @@ Solution: Trigger button threshold increased to 1200 ~ 1V.
     sensorV3 = analogRead(12);//hv
     sensorV4 = analogRead(2);//bias
     sensorV5 = analogRead(26);//lamp status????
+
+# 408:
+Bluetooth of data-output is added for QC
+
+# 409:
+Moving average of data is added.
