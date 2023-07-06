@@ -57,9 +57,8 @@ int BIASVOLTAGE = 0;
 int HIGHVOLTAGE = 0;
 float signalin = 0.;
 
-const int MOVING_AVERAGE_SIZE = 20;
-float signalinValues[MOVING_AVERAGE_SIZE];
-int signalinIndex = 0;
+const int MOVING_AVERAGE_SIZE = 10;
+
 
 #define HEATERREADS 2000 // should be in headerfile!
 #define BIASREADS
