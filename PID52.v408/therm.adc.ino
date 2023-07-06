@@ -54,6 +54,7 @@ void READadc1115() {
       adc0 = ads.readADC_SingleEnded(0);
       datain = adc0 * a + b - 10;
     movingAverage += datain;
+    delay(10);
   }
   signalin = movingAverage/MOVING_AVERAGE_SIZE;
 
