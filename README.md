@@ -52,5 +52,10 @@ Solution: Trigger button threshold increased to 1200 ~ 1V.
 # 408:
 Bluetooth of data-output is added for QC
 
+# 408_QC:
+no averaging, background and drift analysis are added.
+
 # 409:
 Moving average of data is added.
+
+
