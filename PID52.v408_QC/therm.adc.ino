@@ -1,3 +1,6 @@
+float backgroundLevel = 0.0;  // Global variable to store the background level
+float ppm2Level = 0.0;  // Global variable to store the background level
+float previousReadings[100];  // Array to store previous readings for drift calculation
 
 void Thermostat() {
   //D13 - Heater On/Off Out
@@ -27,6 +30,69 @@ void Thermostat() {
   }
   delay(200);  // for debug was 2000
 
+}
+
+void measureBackground() {
+    int numReadings = 100;  // Number of readings to average
+    float sum = 0.0;  // Sum of the readings
+
+    // Take the readings
+    for (int i = 0; i < numReadings; i++) {
+        READadc1115();
+        sum += signalin;
+        previousReadings[i] = signalin;
+        delay(10);  // Short delay between readings
+    }
+
+    // Calculate the average
+    backgroundLevel = sum / numReadings;
+    Serial.println("Background level:");
+    Serial.println(backgroundLevel);
+    Serial.println("Background level %:");
+    Serial.print(backgroundLevel/100);
+    Serial.println("%");
+
+}
+
+void measure2ppm() {
+    int numReadings = 100;  // Number of readings to average
+    float sum = 0.0;  // Sum of the readings
+
+    // Take the readings
+    for (int i = 0; i < numReadings; i++) {
+        READadc1115();
+        sum += signalin;
+        previousReadings[i] = signalin;
+        delay(10);  // Short delay between readings
+    }
+
+    // Calculate the average
+    ppm2Level = sum / numReadings;
+    Serial.println("Background level:");
+    Serial.println(ppm2Level);
+}
+
+void measureDrift() {
+    float sum = 0.0;
+
+    // Calculate the current average signal level
+    for (int i = 0; i < 100; i++) {
+        READadc1115();
+        sum += signalin;
+        delay(10);
+    }
+    float currentAvg = sum / 100;
+
+    // Calculate the previous average signal level
+    sum = 0.0;
+    for (int i = 0; i < 100; i++) {
+        sum += previousReadings[i];
+    }
+    float previousAvg = sum / 100;
+
+    // Calculate and display the drift
+    float drift = currentAvg - previousAvg;
+    Serial.printf("Signal drift: %.2f\n", drift);
 }
 
 void READadc1115() {

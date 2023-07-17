@@ -136,6 +136,12 @@ void runit() {
   Serial.printf("runit STARTING\n\r"); delay(100);
   starttime = millis();
   while ( timeremaining > 0 ) {
+      //Serial.println("QC: Measuring Sensitivity 2ppm");
+      //measure2ppm();
+      Serial.println("QC: Measuring Background");
+      measureBackground();
+      Serial.println("QC: Measuring Drift");
+      measureDrift();
     Thermostat();
     if (buttonPushed(15) == 1) {
       display.clear(); display.display(); Serial.printf("\t\tB R O K E\n\n");
